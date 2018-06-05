@@ -34,15 +34,13 @@ function f2(str) {
     obj = {
       [keys[keys.length - i]]: value
     };
-    alert(key);
     value = obj;
     i++;
-    if (i <= keys.length) return;
   });
 
   return obj;
 }
 
-let a = f2(str);
+let a = f2(str2);
 
-alert(a.foo.bar);
+alert(a.hello);
