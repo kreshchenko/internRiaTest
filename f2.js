@@ -30,17 +30,25 @@ function f2(str) {
 */
 
   /*Вариант 2 с помощью forEach*/
-  keys.forEach(key => {
+  /*keys.forEach(key => {
     obj = {
       [keys[keys.length - i]]: value
     };
     value = obj;
     i++;
-  });
+  });*/
+
+  /*Вариант 3 c помощью for */
+  for (i = keys.length - 1; i >= 0; i--) {
+    obj = {
+      [keys[i]]: value
+    };
+    value = obj;
+  }
 
   return obj;
 }
 
-let a = f2(str2);
+let a = f2(str3);
 
-alert(a.hello);
+alert(a.this.is.my.first.app);
