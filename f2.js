@@ -17,7 +17,7 @@ function f2(str) {
   let obj = {};
 
   /*Вариант 1. Генерация обьекта с помощью рекрсии*/
-  function createObj(arr) {
+  /*function createObj(arr) {
     obj = {
       [arr[arr.length - i]]: value
     };
@@ -27,6 +27,18 @@ function f2(str) {
   }
 
   createObj(keys);
+*/
+
+  /*Вариант 2 с помощью forEach*/
+  keys.forEach(key => {
+    obj = {
+      [keys[keys.length - i]]: value
+    };
+    alert(key);
+    value = obj;
+    i++;
+    if (i <= keys.length) return;
+  });
 
   return obj;
 }
