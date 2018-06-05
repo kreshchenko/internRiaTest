@@ -1,10 +1,5 @@
 "use strict";
 
-/*Строки для проверки */
-let str = 'foo.bar="92499aacd96553f313fb9b85913f2e18"';
-let str2 = "hello=World";
-let str3 = "this.is.my.first.app=12";
-
 function f2(str) {
   /*Разделяем строку на ключ и значение */
   let strArr = str.split("=");
@@ -49,6 +44,16 @@ function f2(str) {
   return obj;
 }
 
-let a = f2(str3);
+/*Проверка*/
+let str = 'foo.bar="92499aacd96553f313fb9b85913f2e18"';
+let str2 = "hello=World";
+let str3 = "this.is.my.first.app=12";
 
-alert(a.this.is.my.first.app);
+let newObj1 = f2(str);
+alert(newObj1.foo.bar);
+
+let newObj2 = f2(str2);
+alert(newObj2.hello);
+
+let newObj3 = f2(str3);
+alert(newObj3.this.is.my.first.app);
