@@ -22,3 +22,21 @@ function f2(str) {
 
   return obj;
 }
+
+function f3(str) {
+  /*Разделение строки на подстроки */
+  let stringsArr = str.split("&");
+
+  /*Массив для хранения обьектов полученых с строки*/
+  let objArr = [];
+
+  /*Превращаем каждую строку в обьект с помощью функции f2 из прошлой задачи */
+  stringsArr.forEach(someString => {
+    objArr.push(f2(someString));
+  });
+}
+
+let str =
+  "foo.id=92499aacd96553f313fb9b85913f2e18&boo.foo=10&foo.bar=3&foo.bar=lll";
+
+f3(str);
