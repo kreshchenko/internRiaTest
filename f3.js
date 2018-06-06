@@ -52,10 +52,19 @@ function f3(str) {
     start++;
   });
 
-  alert(objArr[0].foo.id);
+  /*Создаем объект результат */
+  let resultObj = {};
+  objArr.forEach(someObj => {
+    resultObj = Object.assign(resultObj, someObj);
+  });
+
+  return resultObj;
 }
 
 let str = "foo.id=92499aacd96553f313fb9b85913f2e18&boo.foo=10&foo.bar=sdds";
+let str2 = "foo.id=92499aacd96553f313fb9b85913f2e18&boo.foo=10&foo.bar=";
+let str3 = "user.name=Alex&user.name=Oleg";
+let str4 = "db.host=&db.user=root&db.pass=12340";
 
 let a = f3(str);
-console.log(a.foo.id);
+console.log(a.foo.bar);
