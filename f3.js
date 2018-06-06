@@ -39,11 +39,11 @@ function f3(str) {
 
   /*Индекс для уменьшения прохода по массиву при поиске одинаковых */
   let start = 0;
-  /*Поиск одинаковых ключей и обьеденение обьектов */
+  /*Поиск одинаковых ключей и обьединение обьектов */
   objArr.forEach((someObj, index) => {
-    let key = Object.keys(someObj);
+    let key = Object.keys(someObj); //получаем ключ который будем проверять на повторение
     for (let i = start; i < objArr.length; i++) {
-      let tmpKey = Object.keys(objArr[i]);
+      let tmpKey = Object.keys(objArr[i]); //ключ для сравнения с key
       if (key.toString() == tmpKey.toString() && index != i) {
         objArr[index][key] = Object.assign(objArr[index][key], objArr[i][key]); //Объдинение обьектов
         objArr.splice(i, 1); //удаляем елемент который обьединяли
