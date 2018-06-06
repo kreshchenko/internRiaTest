@@ -12,13 +12,15 @@ function f2(str) {
   let i = 1;
   let obj = {};
 
-  keys.forEach(key => {
-    obj = {
-      [keys[keys.length - i]]: value
-    };
-    value = obj;
-    i++;
-  });
+  if (value.trim() != "") {
+    keys.forEach(key => {
+      obj = {
+        [keys[keys.length - i]]: value
+      };
+      value = obj;
+      i++;
+    });
+  }
 
   return obj;
 }
@@ -34,9 +36,26 @@ function f3(str) {
   stringsArr.forEach(someString => {
     objArr.push(f2(someString));
   });
+
+  /*Индекс для уменьшения прохода по массиву при поиске одинаковых */
+  let start = 0;
+  /*Поиск одинаковых ключей и обьеденение обьектов */
+  objArr.forEach((someObj, index) => {
+    let key = Object.keys(someObj);
+    for (let i = start; i < objArr.length; i++) {
+      let tmpKey = Object.keys(objArr[i]);
+      if (key.toString() == tmpKey.toString() && index != i) {
+        objArr[index][key] = Object.assign(objArr[index][key], objArr[i][key]); //Объдинение обьектов
+        objArr.splice(i, 1); //удаляем елемент который обьединяли
+      }
+    }
+    start++;
+  });
+
+  alert(objArr[0].foo.id);
 }
 
-let str =
-  "foo.id=92499aacd96553f313fb9b85913f2e18&boo.foo=10&foo.bar=3&foo.bar=lll";
+let str = "foo.id=92499aacd96553f313fb9b85913f2e18&boo.foo=10&foo.bar=sdds";
 
-f3(str);
+let a = f3(str);
+console.log(a.foo.id);
