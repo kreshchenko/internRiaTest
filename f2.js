@@ -5,13 +5,19 @@ function f2(str) {
   if (str.length == 0) {
     return "Empty str";
   }
-  /*Разделяем строку на ключ и значение */
-  let strArr = str.split("=");
-  /*Получаем массив значений ключа/ключей из строки*/
-  let keys = strArr[0].split(".");
-  /*Получаем значение и удаляем с него кавычки если они есть*/
+
+  //Вариант 1 разделения строки
+  /*
+  let strArr = str.split("="); //Разделяем строку на ключ и значение
+  let keys = strArr[0].split("."); //Получаем массив значений ключа/ключей из строки
   strArr.splice(0, 1);
   let value = strArr.join("=").replace(/"/g, "");
+  */
+
+  //Вариант 2 разделения строки с помощью регулярного выражения
+  let [excess, keys, value] = str.match(/([^=]*)=\"?([^\"]*)\"?$/);
+
+  keys = keys.split(".");
 
   let i = 1;
   let obj = {};
