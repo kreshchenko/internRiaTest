@@ -1,18 +1,10 @@
 "use strict";
 
-let f = a => {
-  let allSum = a;
-
-  let sum = b => {
-    allSum += b;
-    return sum;
+function f(a) {
+  return function(b) {
+    return a + b;
   };
+}
 
-  sum.toString = function() {
-    return allSum;
-  };
-
-  return sum;
-};
-
-alert(f(1)(3));
+console.log(typeof f(1)(2));
+console.log(typeof f(5)(-1));
