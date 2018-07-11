@@ -9,3 +9,4 @@ function f(a) {
 console.log(typeof f(1)(2));
 console.log(typeof f(5)(-1));
 console.log(typeof f(3)(3));
+console.log(typeof f(2)(2));
